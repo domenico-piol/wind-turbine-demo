@@ -73,7 +73,7 @@ spec:
         - maven-run
       params:
         - name: CONTEXT
-          value: ui
+          value: .
         - name: IMAGE
           value: registry-1.docker.io/domenicopiol/wind-turbine-demo:$(context.pipelineRun.uid)
       workspaces:
