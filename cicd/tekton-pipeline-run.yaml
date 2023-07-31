@@ -14,6 +14,15 @@ spec:
     - name: dockerconfig-ws
       secret:
         secretName: dockerconfig-secret
+    - name: node-cache
+      persistentvolumeclaim:
+        claimName: maven-cache-pvc
+    - name: npm-repo
+      persistentvolumeclaim:
+        claimName: maven-cache-pvc
+    - name: maven-repo
+      persistentvolumeclaim:
+        claimName: maven-cache-pvc
   params:
     - name: repo-url
       value: https://github.com/domenico-piol/wind-turbine-demo
