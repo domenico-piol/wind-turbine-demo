@@ -75,26 +75,27 @@ spec:
         - name: CONTEXT
           value: .
         - name: IMAGE
-          value: registry-1.docker.io/domenicopiol/wind-turbine-demo:$(context.pipelineRun.uid)
+          #value: registry-1.docker.io/domenicopiol/wind-turbine-demo:$(context.pipelineRun.uid)
+          value: registry-1.docker.io/domenicopiol/wind-turbine-demo:latest
       workspaces:
         - name: source
           workspace: shared-workspace
         - name: dockerconfig
           workspace: dockerconfig-ws
-    - name: ui-skopeo-copy
-      taskRef:
-        name: skopeo-copy
-      runAfter:
-        - ui-buildah
-      params:
-        - name: srcImageURL
-          value: docker://registry-1.docker.io/domenicopiol/wind-turbine-demo:$(context.pipelineRun.uid)
-        - name: destImageURL
-          value: docker://registry-1.docker.io/domenicopiol/wind-turbine-demo:latest
-        - name: srcTLSverify
-          value: 'false'
-        - name: destTLSverify
-          value: 'false'
-      workspaces:
-        - name: images-url
-          workspace: shared-workspace
+#    - name: ui-skopeo-copy
+#      taskRef:
+#        name: skopeo-copy
+#      runAfter:
+#        - ui-buildah
+#      params:
+#        - name: srcImageURL
+#          value: docker://registry-1.docker.io/domenicopiol/wind-turbine-demo:$(context.pipelineRun.uid)
+#        - name: destImageURL
+#          value: docker://registry-1.docker.io/domenicopiol/wind-turbine-demo:latest
+#        - name: srcTLSverify
+#          value: 'false'
+#        - name: destTLSverify
+#          value: 'false'
+#      workspaces:
+#        - name: images-url
+#          workspace: shared-workspace
